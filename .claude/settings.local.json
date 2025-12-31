@@ -3,7 +3,6 @@
     "allow": [
       "Bash(swift build:*)",
       "Bash(.build/debug/LotteryMCPServer)",
-      "Bash(swift test_simulation.swift:*)"
     ]
   }
 }
