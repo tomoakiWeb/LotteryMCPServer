@@ -25,18 +25,19 @@
 
 ※発売総額1,380億円・23ユニットの場合（1ユニット2,000万枚）
 
+[link](https://www.takarakuji-official.jp/brand/jumbo/product/product.html)
+
 ## セットアップ
 
 ### 前提条件
 
 - **macOS**: 13.0以上
 - **Swift**: 6.2以上
-- **Xcode**: 16.0以上（Swift 6.0対応）
+- **Xcode**: 16.0以上
 
 ### ビルド
 
 ```bash
-# Debugビルド（開発・デバッグ用）
 swift build
 ```
 
@@ -59,14 +60,6 @@ Claude DesktopのMCPサーバー設定ファイルに以下を追加します。
 > **注意**: パスは実際のプロジェクトの場所に合わせて変更してください。
 
 設定後、**Claude Desktopを再起動**してください。
-
-## 手動実行（開発・テスト）
-
-```bash
-# Debugビルドの実行
-.build/debug/LotteryMCPServer
-
-```
 
 ## 利用可能なツール
 
