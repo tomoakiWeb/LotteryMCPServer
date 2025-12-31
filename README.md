@@ -9,7 +9,7 @@
 - 購入金額と当選金額の収支計算
 - 還元率の表示
 
-## 年末ジャンボ宝くじデータ（2024年）
+## 年末ジャンボ宝くじデータ（2025年）
 
 | 等級 | 当せん金 | 本数 |
 |------|----------|------|
@@ -25,54 +25,61 @@
 
 ※発売総額1,380億円・23ユニットの場合（1ユニット2,000万枚）
 
-## ビルド方法
+## セットアップ
+
+### 前提条件
+
+- **macOS**: 13.0以上
+- **Swift**: 6.2以上
+- **Xcode**: 16.0以上（Swift 6.0対応）
+
+### ビルド
 
 ```bash
+# Debugビルド（開発・デバッグ用）
 swift build
 ```
 
-## 実行方法
+## 実行・クライアント設定（Claude Desktop）
 
-```bash
-swift run LotteryMCPServer
-```
+Claude DesktopのMCPサーバー設定ファイルに以下を追加します。
 
-または、ビルドされた実行ファイルを直接実行:
-
-```bash
-.build/debug/LotteryMCPServer
-```
-
-## MCP クライアントとの統合
-
-### Claude Desktop での使用
-
-`claude_desktop_config.json` に以下の設定を追加してください:
+**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 
 ```json
 {
   "mcpServers": {
     "lottery-simulator": {
-      "command": "/path/to/LotteryMCPServer/.build/debug/LotteryMCPServer"
+      "command": "LotteryMCPServerへのPath/.build/release/LotteryMCPServer"
     }
   }
 }
 ```
 
-### 利用可能なツール
+> **注意**: パスは実際のプロジェクトの場所に合わせて変更してください。
 
-#### `simulate_lottery`
+設定後、**Claude Desktopを再起動**してください。
+
+## 手動実行（開発・テスト）
+
+```bash
+# Debugビルドの実行
+.build/debug/LotteryMCPServer
+
+```
+
+## 利用可能なツール
+
+### `simulate_lottery`
 
 年末ジャンボ宝くじのシミュレーションを実行します。
 
 **パラメータ:**
 - `tickets` (integer, 必須): 購入する宝くじの枚数（1以上）
 
-**例:**
-```json
-{
-  "tickets": 10
-}
+**使用例（Claude Desktop）:**
+```
+10枚の宝くじを買ったらどうなるかシミュレーションして
 ```
 
 **出力例:**
@@ -93,9 +100,9 @@ swift run LotteryMCPServer
 
 ## 技術スタック
 
-- Swift 6.2+
-- [Swift MCP SDK](https://github.com/modelcontextprotocol/swift-sdk)
-- macOS 13.0+
+- **Swift**: 6.2+
+- **Swift MCP SDK**: [modelcontextprotocol/swift-sdk](https://github.com/modelcontextprotocol/swift-sdk)
+- **プラットフォーム**: macOS 13.0+
 
 ## ライセンス
 
