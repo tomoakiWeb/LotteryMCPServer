@@ -10,6 +10,7 @@ struct PrizeTier: Codable {
 
 struct LotteryResult: Codable {
     let tier: String
+    let prize: Int
     let wins: Int
     let totalPrize: Int
 }
@@ -74,6 +75,7 @@ actor LotterySimulator {
                 totalWinnings += tierTotal
                 results.append(LotteryResult(
                     tier: tier.name,
+                    prize: tier.prize,
                     wins: tierWins,
                     totalPrize: tierTotal
                 ))
@@ -171,7 +173,7 @@ struct LotteryMCPServer {
                 output += "\n残念ながら当選はありませんでした"
             } else {
                 for lotteryResult in result.results {
-                    output += "\n\(lotteryResult.tier): \(lotteryResult.wins)本 - ¥\(formatNumber(lotteryResult.totalPrize))"
+                    output += "\n\(lotteryResult.tier)(\(formatNumber(lotteryResult.prize))円)　\(lotteryResult.wins)本"
                 }
             }
 
