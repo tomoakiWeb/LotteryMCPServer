@@ -51,7 +51,7 @@ Claude DesktopのMCPサーバー設定ファイルに以下を追加します。
 {
   "mcpServers": {
     "lottery-simulator": {
-      "command": "LotteryMCPServerへのPath/.build/release/LotteryMCPServer"
+      "command": "LotteryMCPServerへのPath/.build/debug/LotteryMCPServer"
     }
   }
 }
